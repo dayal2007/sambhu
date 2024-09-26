@@ -28,7 +28,6 @@ const App = () => {
           <Route path="*" element={<NotFound />} /> {/* Catch-all for 404 */}
         </Routes>
         <Footer></Footer>
-        <Preloader></Preloader>
         <ScrollTop></ScrollTop>
       </Router>
   );

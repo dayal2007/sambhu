@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const TechIcons = () =>{
     return(
             <section id="tech_icons"  className="section tech_icons">

@@ -108,7 +108,7 @@ h6 {
   width: 300px;
   transition: all ease-in-out 0.3s;
   overflow-y: auto;
-  z-index: 997;
+  z-index: 999999999999;
   border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
@@ -355,7 +355,7 @@ h6 {
   content: "";
   position: fixed;
   top: calc(50% - 30px);
-  left: calc(50% - 30px);
+  left: calc(60% - 0px);
   border: 6px solid #ffffff;
   border-color: var(--accent-color) transparent var(--accent-color) transparent;
   border-radius: 50%;
@@ -363,6 +363,17 @@ h6 {
   height: 60px;
   animation: animate-preloader 1.5s linear infinite;
 }
+
+
+/*--------------------------------------------------------------
+# Preloader animation on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 1199px) {
+  #preloader:before {
+    left: calc(50% - 30px)!important;
+  }
+}
+
 
 @keyframes animate-preloader {
   0% {
