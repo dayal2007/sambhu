@@ -5,7 +5,7 @@ const Preloader = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); // 1 seconds delay
+    }, 500); // 0.5 seconds delay
 
     return () => clearTimeout(timer); // Cleanup on unmount
   }, []);
