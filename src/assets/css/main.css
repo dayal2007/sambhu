@@ -25,6 +25,7 @@
   --accent-color: #0d28a3; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --underline-color: #efde4d;
   --contrast-color: #ffffff; /* The contrast color is used for elements when the background color is one of the heading, accent, or default colors. Its purpose is to ensure proper contrast and readability when placed over these more dominant colors */
+  --sub-title:#20275c;
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -342,6 +343,7 @@ h6 {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
+ /* 
 #preloader {
   position: fixed;
   inset: 0;
@@ -350,9 +352,8 @@ h6 {
   background: var(--background-color);
   transition: all 0.6s ease-out;
 }
-
 #preloader:before {
-  content: "";
+   content: "";
   position: fixed;
   top: calc(50% - 30px);
   left: calc(60% - 0px);
@@ -363,11 +364,12 @@ h6 {
   height: 60px;
   animation: animate-preloader 1.5s linear infinite;
 }
-
+*/
 
 /*--------------------------------------------------------------
 # Preloader animation on mobile devices
 --------------------------------------------------------------*/
+/*
 @media screen and (max-width: 1199px) {
   #preloader:before {
     left: calc(50% - 30px)!important;
@@ -384,7 +386,7 @@ h6 {
     transform: rotate(360deg);
   }
 }
-
+*/
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
@@ -485,11 +487,12 @@ section,
 }
 
 .section-title h2 {
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 200;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
+  letter-spacing: -2px;
 }
 
 .section-title h2:after {
@@ -559,6 +562,7 @@ section,
   margin: 0;
   font-size: 3.0rem;
   font-weight: 100;
+  letter-spacing: -3px;
 }
 
 .hero p {
@@ -648,21 +652,41 @@ section,
        transition: ease-out 0.2s;
     }
 }
+
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
 .about .content h2 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 24px;
+  letter-spacing: 0px;
+  color: var(--heading-color);
+  margin-bottom: 0px;
+}
+
+.about h1{
+  font-size: 1.4em;
+  text-align: center;
+  margin: 40px 0;
+  font-family: 'sdb-regular';
+  color: var(--heading-color);
+}
+
+.about .content h2::after {
+  display:none;
+}
+
+.about .content strong{
+  color: var(--heading-color);
 }
 
 .about .content ul {
   list-style: none;
   padding: 0;
+  margin-left: 1rem;
 }
 
 .about .content ul li {
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
 }
@@ -1366,3 +1390,380 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+/*
+New Preloader
+*/
+.spinner-body {
+  overflow: hidden;
+}
+#spinner-wrapper {
+  display: none;
+}
+#spinner-wrapper.loading {
+  display: block;
+}
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  background: #515781;
+  transform: translate3d(0, 0, 0);
+}
+.preloader__wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 100%;
+  background-color: transparent;
+  transform: translate3d(0, 0, 0);
+}
+.preloader__wrapper:after {
+  background: #515781;
+  content: '';
+  width: 90px;
+  height: 90px;
+  margin: -45px 0 0 -45px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  border-radius: 50%;
+  z-index: 11;
+}
+.preloader__spiner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  transform: translate3d(0, 0, 0);
+  transform-origin: 100% 100%;
+}
+.preloader__spiner-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  background: #515781;
+  transform-origin: 100% 100%;
+  -webkit-animation: spin-mask 2.5s infinite linear;
+          animation: spin-mask 2.5s infinite linear;
+}
+.preloader__spiner.spin-1 {
+  background-color: #9eef01;
+  -webkit-animation: spin-1 2.5s infinite linear;
+          animation: spin-1 2.5s infinite linear;
+}
+.preloader__spiner.spin-2 {
+  background-color: #fdc202;
+  -webkit-animation: spin-2 2.5s infinite linear;
+          animation: spin-2 2.5s infinite linear;
+}
+.preloader__spiner.spin-3 {
+  background-color: #9eef01;
+  -webkit-animation: spin-3 2.5s infinite linear;
+          animation: spin-3 2.5s infinite linear;
+}
+.preloader__spiner.spin-4 {
+  background-color: #fdc202;
+  -webkit-animation: spin-4 2.5s infinite linear;
+          animation: spin-4 2.5s infinite linear;
+}
+.preloader__dots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 36px;
+  height: 36px;
+  z-index: 12;
+  margin: -18px 0 0 -18px;
+  background-color: transparent;
+  -webkit-animation: rotate 1s linear infinite;
+          animation: rotate 1s linear infinite;
+}
+.preloader__dot {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+.preloader__dot:after,
+.preloader__dot:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+.preloader__dot:after {
+  top: -25px;
+  right: 0;
+  -webkit-animation: down 1s linear infinite;
+          animation: down 1s linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.preloader__dot:before {
+  right: -25px;
+  bottom: 0px;
+}
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0deg);
+  }
+  100%, 50% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0deg);
+  }
+  100%, 50% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
+}
+@-webkit-keyframes down {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scaleX(1);
+  }
+  75% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(25px, 0, 0) scaleX(1.3);
+  }
+}
+@keyframes down {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scaleX(1);
+  }
+  75% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(25px, 0, 0) scaleX(1.3);
+  }
+}
+@-webkit-keyframes spin-mask {
+  0% {
+    transform: rotate(0deg);
+    z-index: 2;
+  }
+  50% {
+    transform: rotate(90deg);
+    z-index: 2;
+  }
+  90% {
+    transform: rotate(90deg);
+    z-index: 4;
+  }
+  100% {
+    transform: rotate(90deg);
+    z-index: 4;
+  }
+}
+@keyframes spin-mask {
+  0% {
+    transform: rotate(0deg);
+    z-index: 2;
+  }
+  50% {
+    transform: rotate(90deg);
+    z-index: 2;
+  }
+  90% {
+    transform: rotate(90deg);
+    z-index: 4;
+  }
+  100% {
+    transform: rotate(90deg);
+    z-index: 4;
+  }
+}
+@-webkit-keyframes spin-1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    z-index: 3;
+  }
+  50% {
+    transform: rotate(1080deg);
+    z-index: 3;
+  }
+  70% {
+    transform: rotate(1080deg);
+    z-index: 3;
+  }
+  90% {
+    transform: rotate(1170deg);
+  }
+  100% {
+    transform: rotate(1170deg);
+  }
+}
+@keyframes spin-1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    z-index: 3;
+  }
+  50% {
+    transform: rotate(1080deg);
+    z-index: 3;
+  }
+  70% {
+    transform: rotate(1080deg);
+    z-index: 3;
+  }
+  90% {
+    transform: rotate(1170deg);
+  }
+  100% {
+    transform: rotate(1170deg);
+  }
+}
+@-webkit-keyframes spin-2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    z-index: 3;
+  }
+  50% {
+    transform: rotate(990deg);
+    z-index: 3;
+  }
+  90% {
+    transform: rotate(1170deg);
+    z-index: 3;
+  }
+  100% {
+    transform: rotate(1170deg);
+  }
+}
+@keyframes spin-2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    z-index: 3;
+  }
+  50% {
+    transform: rotate(990deg);
+    z-index: 3;
+  }
+  90% {
+    transform: rotate(1170deg);
+    z-index: 3;
+  }
+  100% {
+    transform: rotate(1170deg);
+  }
+}
+@-webkit-keyframes spin-3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    z-index: 3;
+  }
+  50% {
+    transform: rotate(900deg);
+    z-index: 3;
+  }
+  90% {
+    transform: rotate(1170deg);
+    z-index: 3;
+  }
+  100% {
+    transform: rotate(1170deg);
+  }
+}
+@keyframes spin-3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    z-index: 3;
+  }
+  50% {
+    transform: rotate(900deg);
+    z-index: 3;
+  }
+  90% {
+    transform: rotate(1170deg);
+    z-index: 3;
+  }
+  100% {
+    transform: rotate(1170deg);
+  }
+}
+@-webkit-keyframes spin-4 {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    z-index: 3;
+  }
+  50% {
+    transform: rotate(810deg);
+    z-index: 3;
+  }
+  90% {
+    transform: rotate(1170deg);
+    z-index: 3;
+  }
+  100% {
+    transform: rotate(1170deg);
+  }
+}
+@keyframes spin-4 {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    z-index: 3;
+  }
+  50% {
+    transform: rotate(810deg);
+    z-index: 3;
+  }
+  90% {
+    transform: rotate(1170deg);
+    z-index: 3;
+  }
+  100% {
+    transform: rotate(1170deg);
+  }
+}
+/*New preloader ends*/
