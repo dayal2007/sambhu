@@ -11,7 +11,9 @@ const Preloader = () => {
   }, []);
 
   if (loading) {
-    return <div id="preloader"></div>
+    return <div id="preloader">
+      <div className="lds-ripple"><div></div><div></div></div>
+    </div>
   }else{ 
     return <></>
   }

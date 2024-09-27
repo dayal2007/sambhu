@@ -25,6 +25,7 @@
   --accent-color: #0d28a3; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --underline-color: #efde4d;
   --contrast-color: #ffffff; /* The contrast color is used for elements when the background color is one of the heading, accent, or default colors. Its purpose is to ensure proper contrast and readability when placed over these more dominant colors */
+  --sub-title:#20275c;
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -338,53 +339,11 @@ h6 {
   font-size: 13px;
   text-align: center;
 }
-
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
+.footer .big {
+  margin-top: 4px;
+  font-size: 18px;
+  text-align: center;
 }
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(60% - 0px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
-}
-
-
-/*--------------------------------------------------------------
-# Preloader animation on mobile devices
---------------------------------------------------------------*/
-@media screen and (max-width: 1199px) {
-  #preloader:before {
-    left: calc(50% - 30px)!important;
-  }
-}
-
-
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
@@ -485,15 +444,16 @@ section,
 }
 
 .section-title h2 {
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 200;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
+  letter-spacing: -2px;
 }
 
 .section-title h2:after {
-  content: "";
+  content: " ";
   position: absolute;
   display: block;
   width: 50px;
@@ -559,6 +519,7 @@ section,
   margin: 0;
   font-size: 3.0rem;
   font-weight: 100;
+  letter-spacing: -3px;
 }
 
 .hero p {
@@ -648,21 +609,42 @@ section,
        transition: ease-out 0.2s;
     }
 }
+
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
 .about .content h2 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 24px;
+  letter-spacing: 0px;
+  color: var(--heading-color);
+  margin-bottom: 0px;
+}
+.about .content h2 span{ border-bottom:2px dotted #CCC;}
+.about h1{
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 40px 0;
+  font-family: 'sdb-regular';
+  color: var(--default-color);
+  letter-spacing: -1.5px;
+}
+
+.about .content h2::after {
+  display:none;
+}
+
+.about .content strong{
+  color: var(--heading-color);
 }
 
 .about .content ul {
   list-style: none;
   padding: 0;
+  margin-left: 1rem;
 }
 
 .about .content ul li {
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
 }
@@ -1366,3 +1348,94 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+/*
+New Preloader
+*/
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+ 
+#preloader div.lds-ripple {
+   content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(60% - 0px);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+ /**/
+
+/*--------------------------------------------------------------
+# Preloader animation on mobile devices
+--------------------------------------------------------------*/
+
+@media screen and (max-width: 1199px) {
+  #preloader div.lds-ripple{
+    left: calc(50% - 30px)!important;
+  }
+}
+.lds-ripple {
+  /* change color here */
+  color: #1c4c5b
+}
+.lds-ripple,
+.lds-ripple div {
+  box-sizing: border-box;
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid currentColor;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  z-index: 9999999;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+  }
+}
+/*New preloader ends*/
