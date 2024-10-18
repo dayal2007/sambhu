@@ -74,6 +74,46 @@ a {
   color: var(--accent-color);
   text-decoration: none;
   transition: 0.3s;
+  font-weight: 600;
+}
+
+@media (min-width: 800px) {
+  nav ol li a {
+    margin-top: -9px;
+    margin-bottom: -9px;
+  }
+}
+
+@media (max-width: 800px) {
+  nav ol li a {
+    font-size: 1.0rem!important;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+  nav ol li {
+    display: block;
+    width:100%;
+  }
+  .page-title .breadcrumbs ol li+li::before {
+    content: ""!important;
+    display: inline-block;
+    padding: 10px 0px!important;
+    color: none!important;
+    }
+  .page-title .breadcrumbs ol li+li {
+      padding-left: 0px!important;
+  }
+
+}
+.img-colab{
+  max-width: 30px;
+  margin-top: -5px !important;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 a:hover {

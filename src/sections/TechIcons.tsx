@@ -3,7 +3,7 @@ import React from 'react';
 
 const TechIcons = () =>{
     return(
-            <section id="tech_icons"  className="section tech_icons">
+            <section id="tech_icons"  className="section tech_icons"  data-aos-delay="200">
             <div className="container-fluid"  data-aos="fade-up">
             <div className="row">
             <div className="col-md-1">

@@ -4,7 +4,8 @@ const HomeIntro = () => {
     return (
         <section className="about">
             <div className="container section-title aos-init aos-animate" data-aos="fade-up">  
-            <h1 className="blockquote">" Welcome to my personal website! I'm Sambhu Dayal, and I'm excited to have you here. Feel free to explore and get to know me better. "</h1>
+                    <p>Don't forget to follow me on <i className="bi bi-badge-sd"></i> <a target="_blank" href='https://www.linkedin.com/in/sambhudayalb/'>www.linkedin.com</a> for updates and more!<br></br>
+                    Thank you for stopping by!</p>
                     <hr className='mb-5'></hr>
                     <h2>Professional Experience</h2>
                     <div className="content mt-5">

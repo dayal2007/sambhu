@@ -7,7 +7,6 @@ import './assets/css/main.css';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Preloader from './components/Preloader';
 import ScrollTop from './components/ScrollTop';
 
 import Home from './Pages/Home';
@@ -16,9 +15,12 @@ import NotFound from './Pages/NotFound';
 import About from './Pages/About';
 import Skills from './Pages/Skills';
 
+import Colab from './sections/Colab';
+
 const App = () => {
   return (
     <Router>
+
         <Header></Header>
         <Routes>
           <Route path="/" element={<Home />} />

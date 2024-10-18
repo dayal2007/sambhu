@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () =>{
     return(
-        <section id="home" className="hero section">
+        <section className="hero section">
 
         <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" className="" />
   

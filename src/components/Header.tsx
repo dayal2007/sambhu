@@ -1,12 +1,26 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+//import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { useState, useRef } from 'react';
 
 const Header = () => {
-    return (
+
+  const [isActive, setIsActive] = useState(false);
+  const boxRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
+  const toggleClass = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const button = event.currentTarget;
+    button.classList.toggle('bi-x');
+    if (boxRef.current) {
+      boxRef.current.classList.toggle('header-show');
+      setIsActive(prev => !prev);
+    }
+  };
+
+  return (
     <>
-    <header id="header" className="header d-flex flex-column">
-    <i className="header-toggle d-xl-none bi bi-list"></i>
+    <header id="header" className="header d-flex flex-column" ref={boxRef}>
+    <i id='header-toggle' className="header-toggle d-xl-none bi bi-list" onClick={toggleClass} ref={buttonRef}></i>
 
     <div className="profile-img">
       <img src="assets/img/my-profile-img.jpg" alt="" className="img-fluid rounded-circle" />
@@ -15,10 +29,7 @@ const Header = () => {
     <a href="index.php" className="logo d-flex align-items-center justify-content-center">
       <h1 className="sitename text-center">Sambhu Dayal Bahuleyan</h1>
     </a>
-    <p className="text-center">
-	Web developer, Artist<br />
-	<small>Limerick, Ireland</small>
-    </p>
+    <p className="text-center">Web developer, Artist<br /><small>Limerick, Ireland</small></p>
     <div className="social-links text-center">
       <a href="https://www.facebook.com/sambhu.dayal" target="_blank" className="facebook" title="Facebook"><i className="bi bi-facebook"></i></a>
       <a href="https://github.com/dayal2007" target="_blank" className="instagram" title="GitHub"><i className="bi bi-git"></i></a>
